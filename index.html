@@ -330,6 +330,85 @@
         </ol>
       </div>
     </section>
+    <section class="section preview-section" id="preview" aria-labelledby="preview-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Inside the workspace</p>
+          <h2 id="preview-title" class="section-title">Transcript, recap, and execution in one frame.</h2>
+          <p class="section-lede">The layout your team keeps open after a client call—scrub audio on the left, ship the brief from the right.</p>
+        </header>
+
+        <div class="preview-shell" role="img" aria-label="EchoScribe workspace mockup showing transcript lines, summary bullets, and an action list">
+          <div class="preview-chrome">
+            <span class="preview-chrome__dot" aria-hidden="true"></span>
+            <span class="preview-chrome__dot" aria-hidden="true"></span>
+            <span class="preview-chrome__dot" aria-hidden="true"></span>
+            <span class="preview-chrome__title">EchoScribe — Migration review</span>
+          </div>
+          <div class="preview-board">
+            <div class="preview-col preview-col--transcript">
+              <div class="preview-head">
+                <span>Transcript</span>
+                <span class="preview-badge">Live scrub</span>
+              </div>
+              <div class="preview-body">
+                <div class="t-row"><time datetime="PT12S">00:12</time><p><strong>Sofia</strong> — We need sign-off on the migration window.</p></div>
+                <div class="t-row"><time datetime="PT65S">01:05</time><p><strong>Jordan</strong> — I can own the comms doc if we have bullets by EOD.</p></div>
+                <div class="t-row t-row--hl"><time datetime="PT161S">02:41</time><p><strong>Sofia</strong> — Let’s target Tuesday 6–8 UTC; EchoScribe will track the decision.</p></div>
+                <div class="t-row t-row--muted"><time datetime="PT190S">03:10</time><p><strong>You</strong> — Add a risk line for API rate limits.</p></div>
+              </div>
+              <p class="preview-empty-hint">Hover timestamps to jump in audio</p>
+            </div>
+
+            <div class="preview-col preview-col--summary">
+              <div class="preview-head">
+                <span>Summary</span>
+                <div class="preview-tabs" aria-hidden="true">
+                  <span class="is-active">Brief</span>
+                  <span>Detailed</span>
+                </div>
+              </div>
+              <div class="preview-body">
+                <ul class="summary-list">
+                  <li>Migration window proposed for Tuesday 6–8 UTC pending infra sign-off.</li>
+                  <li>Jordan to publish comms doc after receiving bullet list today.</li>
+                  <li>Risk added: API rate limits during cutover; needs validation in staging.</li>
+                </ul>
+                <div class="summary-meta">
+                  <span>Confidence: high</span>
+                  <span>Sources: 4 segments</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="preview-col preview-col--side">
+              <div class="widget">
+                <div class="widget-title">Action items</div>
+                <ul class="checklist">
+                  <li><span class="cb" aria-hidden="true"></span> Infra sign-off — <em>Unassigned</em></li>
+                  <li><span class="cb cb--done" aria-hidden="true"></span> Bullet list — <em>You</em></li>
+                  <li><span class="cb" aria-hidden="true"></span> Rate limit test — <em>Jordan</em></li>
+                </ul>
+              </div>
+              <div class="widget widget--compact">
+                <div class="widget-title">Activity</div>
+                <div class="spark" aria-hidden="true">
+                  <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                </div>
+                <p class="widget-caption">12 edits this week · last sync 2m ago</p>
+              </div>
+              <div class="widget widget--compact">
+                <div class="widget-title">Share</div>
+                <div class="share-row">
+                  <span class="share-pill">View-only link</span>
+                  <button type="button" class="copy-faux" tabindex="-1">Copy</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <script src="script.js"></script>
