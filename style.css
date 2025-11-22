@@ -2031,3 +2031,207 @@ html[data-theme="light"] .theme-icon--moon {
   cursor: default;
 }
 
+.testimonial-feature {
+  padding: var(--space-5) var(--space-6);
+  border-radius: var(--r-xl);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  margin-bottom: var(--space-5);
+  box-shadow: var(--shadow-sm), var(--shadow-inset);
+}
+
+.testimonial-feature blockquote {
+  margin: 0;
+}
+
+.testimonial-feature p {
+  font-family: var(--font-display);
+  font-size: clamp(1.12rem, 0.98rem + 0.55vw, 1.45rem);
+  line-height: 1.48;
+  margin: 0 0 var(--space-4);
+  letter-spacing: -0.02em;
+}
+
+.testimonial-feature footer {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+.tf-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  background: var(--accent-muted);
+  color: var(--accent-text);
+}
+
+.testimonial-feature cite {
+  font-style: normal;
+  font-weight: 700;
+  color: var(--text);
+  display: block;
+}
+
+.tf-role {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-soft);
+}
+
+.testimonial-grid {
+  display: grid;
+  gap: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .testimonial-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.t-card {
+  padding: var(--space-5);
+  border-radius: var(--r-lg);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 200px;
+  box-shadow: var(--shadow-sm), var(--shadow-inset);
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.t-card:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md), var(--shadow-inset);
+}
+
+.t-card p {
+  margin: 0 0 var(--space-4);
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.t-card footer {
+  font-size: 0.85rem;
+  color: var(--text-soft);
+}
+
+.t-card cite {
+  font-style: normal;
+  font-weight: 600;
+  color: var(--text);
+  display: block;
+}
+
+.t-card footer span {
+  display: block;
+}
+
+.pricing-grid {
+  display: grid;
+  gap: var(--space-4);
+}
+
+@media (min-width: 900px) {
+  .pricing-grid {
+    grid-template-columns: repeat(3, 1fr);
+    align-items: stretch;
+  }
+}
+
+.price-card {
+  position: relative;
+  padding: var(--space-6) var(--space-5);
+  border-radius: var(--r-xl);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-sm), var(--shadow-inset);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.price-card:hover {
+  box-shadow: var(--shadow-md), var(--shadow-inset);
+}
+
+.price-card--featured {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-md), 0 0 0 1px var(--accent-muted), var(--shadow-inset);
+  background: var(--surface);
+}
+
+.price-ribbon {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--accent);
+  padding: 6px 10px;
+  border-radius: 999px;
+}
+
+.price-card h3 {
+  margin: 0 0 var(--space-2);
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+}
+
+.price {
+  margin: 0 0 var(--space-2);
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.price-currency {
+  font-size: 1.25rem;
+  vertical-align: super;
+  margin-right: 2px;
+}
+
+.price-period {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-soft);
+}
+
+.price-note {
+  margin: 0 0 var(--space-5);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.price-list {
+  margin: 0 0 var(--space-5);
+  padding-left: 1.1rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  flex: 1;
+}
+
+.price-list li {
+  margin-bottom: var(--space-2);
+}
+
+.pricing-footnote {
+  text-align: center;
+  margin-top: var(--space-5);
+  color: var(--text-soft);
+  font-size: 0.88rem;
+}
+
