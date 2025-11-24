@@ -2438,3 +2438,18 @@ html[data-theme="light"] .theme-icon--moon {
   font-size: 0.85rem;
   color: var(--text-soft);
 }
+
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal--delay {
+  transition-delay: 0.08s;
+}
