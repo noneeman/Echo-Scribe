@@ -40,3 +40,28 @@
   }
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
+
+  const nav = document.querySelector("[data-nav]");
+  const navToggle = document.querySelector("[data-nav-toggle]");
+  const navLabel = navToggle?.querySelector(".sr-only");
+
+  function setNavOpen(open) {
+    if (!nav || !navToggle) return;
+    nav.classList.toggle("is-open", open);
+    navToggle.setAttribute("aria-expanded", String(open));
+    if (navLabel) navLabel.textContent = open ? "Close menu" : "Open menu";
+    document.body.style.overflow = open ? "hidden" : "";
+  }
+
+  if (navToggle && nav) {
+    navToggle.addEventListener("click", () => setNavOpen(!nav.classList.contains("is-open")));
+    nav.addEventListener("click", (e) => {
+      if (e.target.closest('a[href^="#"]') && MOBILE_NAV.matches) setNavOpen(false);
+    });
+    window.addEventListener("resize", () => {
+      if (NAV_BREAKPOINT.matches) setNavOpen(false);
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && nav.classList.contains("is-open")) setNavOpen(false);
+    });
+  }
