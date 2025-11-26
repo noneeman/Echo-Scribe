@@ -84,3 +84,91 @@
       revealNodes.forEach((el) => el.classList.add("is-visible"));
     }
   }
+
+  const FAQ_ITEMS = [
+    {
+      q: "Does it support Zoom or uploaded files?",
+      a: "Yes. Connect Zoom cloud recordings or Google Meet exports, or upload audio and video files directly. Live capture is available on Pro and Team.",
+    },
+    {
+      q: "Can I edit summaries?",
+      a: "Everything is editable. Changes sync to your team view, and the transcript keeps deep links so you can verify wording anytime.",
+    },
+    {
+      q: "Is there a free plan?",
+      a: "Starter is free with a monthly transcription allowance—enough to prove value on a handful of calls. Upgrade when you need longer retention and connectors.",
+    },
+    {
+      q: "Is my data private?",
+      a: "Files are encrypted in transit and at rest. We never train on your workspace content. Team plans include export and deletion workflows for compliance reviews.",
+    },
+    {
+      q: "Can I export to PDF or Notion?",
+      a: "Pro and Team include polished PDF exports and a Notion push that preserves headings, action tables, and links back to EchoScribe.",
+    },
+    {
+      q: "Does it work for solo users?",
+      a: "Absolutely. Many customers run EchoScribe solo for client calls and voice notes, then invite collaborators only when a project needs shared visibility.",
+    },
+  ];
+
+  const faqRoot = document.getElementById("faq-accordion");
+  if (faqRoot) {
+    FAQ_ITEMS.forEach((item, i) => {
+      const n = i + 1;
+      const btnId = `faq-btn-${n}`;
+      const panelId = `faq-panel-${n}`;
+
+      const wrap = document.createElement("div");
+      wrap.className = "accordion-item";
+
+      const h3 = document.createElement("h3");
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "accordion-trigger";
+      btn.setAttribute("aria-expanded", "false");
+      btn.setAttribute("data-accordion-btn", "");
+      btn.id = btnId;
+      btn.setAttribute("aria-controls", panelId);
+      btn.appendChild(document.createTextNode(item.q));
+      const icon = document.createElement("span");
+      icon.className = "accordion-icon";
+      icon.setAttribute("aria-hidden", "true");
+      btn.appendChild(icon);
+      h3.appendChild(btn);
+
+      const panel = document.createElement("div");
+      panel.className = "accordion-panel";
+      panel.id = panelId;
+      panel.setAttribute("role", "region");
+      panel.setAttribute("aria-labelledby", btnId);
+      panel.hidden = true;
+      const p = document.createElement("p");
+      p.textContent = item.a;
+      panel.appendChild(p);
+
+      wrap.appendChild(h3);
+      wrap.appendChild(panel);
+      faqRoot.appendChild(wrap);
+    });
+
+    faqRoot.addEventListener("click", (e) => {
+      const btn = e.target.closest("[data-accordion-btn]");
+      if (!btn || !faqRoot.contains(btn)) return;
+
+      const expanded = btn.getAttribute("aria-expanded") === "true";
+      const panelId = btn.getAttribute("aria-controls");
+      const panel = panelId ? document.getElementById(panelId) : null;
+
+      faqRoot.querySelectorAll("[data-accordion-btn]").forEach((other) => {
+        if (other === btn) return;
+        other.setAttribute("aria-expanded", "false");
+        const oid = other.getAttribute("aria-controls");
+        const op = oid ? document.getElementById(oid) : null;
+        if (op) op.hidden = true;
+      });
+
+      btn.setAttribute("aria-expanded", expanded ? "false" : "true");
+      if (panel) panel.hidden = expanded;
+    });
+  }
