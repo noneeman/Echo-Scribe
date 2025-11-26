@@ -65,3 +65,22 @@
       if (e.key === "Escape" && nav.classList.contains("is-open")) setNavOpen(false);
     });
   }
+
+  const revealNodes = document.querySelectorAll("[data-reveal]");
+  if (revealNodes.length) {
+    if ("IntersectionObserver" in window && !prefersReducedMotion.matches) {
+      const io = new IntersectionObserver(
+        (entries, obs) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add("is-visible");
+            obs.unobserve(entry.target);
+          });
+        },
+        { rootMargin: "0px 0px -8% 0px", threshold: 0.08 }
+      );
+      revealNodes.forEach((el) => io.observe(el));
+    } else {
+      revealNodes.forEach((el) => el.classList.add("is-visible"));
+    }
+  }
