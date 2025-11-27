@@ -172,3 +172,58 @@
       if (panel) panel.hidden = expanded;
     });
   }
+
+  function formatInt(n) {
+    return new Intl.NumberFormat(undefined, { maximumFractionDigits: 0 }).format(n);
+  }
+
+  const counterEl = document.querySelector("[data-counter]");
+  if (counterEl && !prefersReducedMotion.matches) {
+    const target = Number.parseInt(counterEl.getAttribute("data-counter"), 10);
+    if (!Number.isNaN(target)) {
+      const start = Math.max(0, Math.floor(target * 0.82));
+      const duration = 1100;
+      const t0 = performance.now();
+      function tick(now) {
+        const p = Math.min(1, (now - t0) / duration);
+        const eased = 1 - (1 - p) ** 3;
+        counterEl.textContent = `${formatInt(Math.round(start + (target - start) * eased))}+`;
+        if (p < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }
+  }
+
+  const yearEl = document.querySelector("[data-year]");
+  if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+
+  const SECTION_IDS = ["features", "how", "reviews", "pricing", "faq"];
+  const navLinks = document.querySelectorAll("[data-nav-link]");
+  if ("IntersectionObserver" in window && navLinks.length) {
+    const ratios = new Map(SECTION_IDS.map((id) => [id, 0]));
+    const navObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.target.id) ratios.set(entry.target.id, entry.intersectionRatio);
+        });
+        let bestId = null;
+        let best = 0;
+        ratios.forEach((r, id) => {
+          if (r > best) {
+            best = r;
+            bestId = id;
+          }
+        });
+        navLinks.forEach((link) => {
+          const href = link.getAttribute("href");
+          const id = href?.startsWith("#") ? href.slice(1) : "";
+          link.classList.toggle("is-active", id === bestId && best > 0.12);
+        });
+      },
+      { rootMargin: "-18% 0px -52% 0px", threshold: [0, 0.1, 0.2, 0.35, 0.5, 0.75, 1] }
+    );
+    SECTION_IDS.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) navObserver.observe(el);
+    });
+  }
