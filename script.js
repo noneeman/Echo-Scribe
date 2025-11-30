@@ -227,3 +227,4 @@
       if (el) navObserver.observe(el);
     });
   }
+})();

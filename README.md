@@ -2,7 +2,7 @@
 
 EchoScribe is a fictional product concept for meeting intelligence—transcripts, summaries, and action items tied to timestamps and speakers. This build is a static marketing site: one page, custom CSS, and vanilla JS, focused on how the product would be explained to teams who need follow-ups the same day as the call. There is no backend; CTAs and pricing are presentational.
 
-## Live Demo — [🔗](echoscribee.netlify.app)
+## Live Demo — [🔗](https://echoscribee.netlify.app/)
 
 ## Overview
 
