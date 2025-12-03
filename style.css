@@ -418,7 +418,15 @@ a:hover {
   flex-direction: column;
   gap: var(--space-4);
   position: fixed;
-  inset: 64px 0 0;
+  top: 64px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  min-height: calc(100vh - 64px);
+  min-height: calc(100dvh - 64px);
+  max-height: calc(100vh - 64px);
+  max-height: calc(100dvh - 64px);
   z-index: 40;
   padding: var(--space-5);
   background: var(--bg-elevated);
@@ -435,6 +443,13 @@ a:hover {
 @media (min-width: 900px) {
   .site-nav {
     position: static;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    width: auto;
+    min-height: auto;
+    max-height: none;
     flex-direction: row;
     align-items: center;
     gap: var(--space-5);
@@ -486,7 +501,8 @@ a:hover {
   display: flex;
   align-items: center;
   gap: var(--space-3);
-  margin-top: auto;
+  margin-top: var(--space-5);
+  flex-wrap: wrap;
 }
 
 @media (min-width: 900px) {
